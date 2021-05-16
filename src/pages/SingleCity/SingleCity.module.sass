@@ -1,1 +1,90 @@
 @import 'styles/variables'
+
+.meteo
+  display: flex
+  justify-content: space-between
+  align-items: flex-start
+  @media screen and ( max-width: 990px )
+    flex-direction: column
+
+.meteo__actual
+  display: flex
+  justify-content: flex-start
+  align-items: center
+  flex-direction: column
+  margin-top: 7rem
+  width: 50%
+  @media screen and ( max-width: 990px )
+    width: 100%
+
+.meteo__main_info
+  display: flex
+  justify-content: space-between
+  align-items: center
+  width: 100%
+  @media screen and ( max-width: 990px )
+    justify-content: center
+
+.image
+  height: 35rem
+  width: auto
+  @media screen and ( max-width: 650px )
+    height: 17rem
+
+.meteo__main_info__text
+  display: flex
+  justify-content: center
+  align-items: center
+  flex-direction: column
+  @media screen and ( max-width: 990px )
+    margin-left: 2rem
+
+  h3
+    font-size: 8rem
+    font-weight: 900
+    @media screen and ( max-width: 650px )
+      font-size: 4.5rem
+
+  h4
+    font-size: 4.5rem
+    font-weight: 500
+    margin-top: -2rem
+    color: $text-secondary
+    @media screen and ( max-width: 650px )
+      font-size: 2.5rem
+      margin-top: -1rem
+
+.meteo__more_infos
+  display: flex
+  justify-content: space-between
+  align-items: center
+  width: 100%
+  margin-top: 2rem
+  @media screen and ( max-width: 650px )
+    margin-top: 4rem
+  
+.meteo__next_hours
+  display: flex
+  justify-content: center
+  align-items: flex-end
+  flex-direction: column
+  width: 50%
+  @media screen and ( max-width: 990px )
+    width: 100%
+    align-items: flex-start
+    flex-direction: row
+    margin-top: 10rem
+    overflow-y: hidden
+    padding: 2rem
+
+.meteo__next_hour
+  margin-top: 3rem
+  width: 80%
+  @media screen and ( max-width: 990px )
+    width: 100%
+    margin-top: 0
+    margin-left: 2rem
+    &:first-child
+      margin-left: 0
+  &:first-child
+    margin-top: 0

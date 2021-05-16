@@ -1,1 +1,32 @@
 @import 'styles/variables'
+
+.container
+    
+.cards__container
+    margin-top: 10rem
+
+.card__header
+    text-transform: capitalize
+    font-size: 1.8rem
+    font-weight: 300
+
+.cards
+    display: flex
+    justify-content: space-between
+    align-items: flex-start
+    flex-wrap: wrap
+    margin: 0 -1rem
+
+.card
+    margin-top: 4rem
+    padding: 0 1rem
+    flex-basis: 33%
+    max-width: 33%
+
+    @media screen and ( max-width: 1124px )
+        flex-basis: 50%
+        max-width: 50%
+
+    @media screen and ( max-width: 768px )
+        flex-basis: 100%
+        max-width: 100%

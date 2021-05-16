@@ -1,1 +1,36 @@
 @import 'styles/variables'
+
+// Global sass
+*
+  margin: 0
+  padding: 0
+  box-sizing: border-box
+
+html
+  font-size: 62.5%
+  overflow-x: hidden
+
+body
+  background: $gradient
+  background-repeat: no-repeat
+  background-attachment: fixed
+  min-height: 100vh
+  min-width: 100vw
+  font-family: $font
+  font-size: 1.6rem
+  overflow-x: hidden
+  color: $text-primary
+
+img
+  user-select: none
+
+*::selection
+  background: $primary-400
+  color: $text-primary
+
+// Layout sass
+.container
+  padding: 2rem 4rem
+  position: relative
+  @media screen and ( max-width: 520px )
+    padding: 2rem

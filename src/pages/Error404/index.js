@@ -5,7 +5,7 @@ import styles from './Error404.module.sass'
 
 const Error404 = () => {
 
-  // Fonction pour être en haut de la page quand on arrive sur une page
+  // Function to redirect at the top of the page
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [])
@@ -13,7 +13,7 @@ const Error404 = () => {
   return (
     <Layout>
       <Helmet>
-        <title>Error 404</title>
+        <title>React weather | Error 404</title>
       </Helmet>
       
       <div className={styles.container}>

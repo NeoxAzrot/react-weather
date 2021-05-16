@@ -1,1 +1,27 @@
 @import 'styles/variables'
+
+.container
+    display: flex
+    justify-content: center
+    align-items: baseline
+
+.input
+    outline: none
+    background: transparent
+    border: none
+    border-bottom: 1px solid $text-primary
+    font-family: $font
+    width: 20rem
+    color: $text-primary
+    font-size: 1.8rem
+
+.input::placeholder
+    color: $text-primary
+    opacity: .7
+
+.icon
+    cursor: pointer
+
+    svg
+        width: 3rem
+        height: auto

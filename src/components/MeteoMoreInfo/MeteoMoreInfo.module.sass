@@ -1,0 +1,54 @@
+@import 'styles/variables'
+
+.container
+  background: $primary-200
+  padding: 1rem 2rem
+  border-radius: 2rem
+  box-shadow: 0 6px 3px rgba(0, 0, 0, 0.15)
+  display: flex
+  justify-content: flex-start
+  align-items: center
+  flex-direction: column
+  width: 12rem
+  height: 12rem
+  position: relative
+  @media screen and ( max-width: 650px )
+    padding: .5rem 1rem
+    width: 8rem
+    height: 8rem
+
+.name
+  font-size: 1.2rem
+  font-weight: 500
+  @media screen and ( max-width: 650px )
+    font-size: 1rem
+
+.image
+  width: 7rem
+  height: auto
+  position: absolute
+  top: 50%
+  left: 50%
+  transform: translate(-50%, -50%)
+  @media screen and ( max-width: 650px )
+    width: 5rem
+
+.info__container
+  position: absolute
+  bottom: 0
+  left: 50%
+  transform: translate(-50%, 50%)
+  background: $primary-400
+  padding: 1rem 1rem
+  border-radius: 1rem
+  box-shadow: 0 6px 3px rgba(0, 0, 0, 0.15)
+  width: 70%
+  text-align: center
+  @media screen and ( max-width: 650px )
+    padding: .5rem 1rem
+
+.info
+  font-size: 1.2rem
+  font-weight: 500
+  @media screen and ( max-width: 650px )
+    font-size: 1rem

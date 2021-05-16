@@ -14,12 +14,19 @@
 
 - https://home.openweathermap.org/
 
-
-## Pour voir le projet
+## To see the project
 
 ### Netlify
 
-You can find the project online directly at the following address [react-weather.netlify.app](https://react-weather.netlify.app)
+You can find the project online directly at the following address [test-react-weather.netlify.app](https://test-react-weather.netlify.app)
+
+### Some prerequisites if you download the project
+
+You must add your API key in an `.env` file
+
+```bash
+REACT_APP_API_KEY=YOUR_API_KEY
+```
 
 ### `npm start`
 
@@ -33,3 +40,7 @@ It correctly bundles React in production mode and optimizes the build for the be
 
 The build is minified and the filenames include the hashes.
 Then you could see the project without running a `localhost` server.
+
+---
+
+[Sami Lafrance](https://www.samilafrance.com/)

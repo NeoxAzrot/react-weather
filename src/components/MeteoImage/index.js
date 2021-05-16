@@ -291,7 +291,7 @@ const MeteoImage = (props) => {
 
     idToImage.forEach(array => {
       if(weather.id === array.id) {
-        if(actualHour < 7 && actualHour >= 20) {
+        if(actualHour < 7 || actualHour >= 20) {
           link = array.night
         } else {
           link = array.day

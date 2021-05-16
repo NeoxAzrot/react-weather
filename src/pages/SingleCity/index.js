@@ -6,11 +6,14 @@ import { useLocation } from 'react-router-dom'
 import HeaderSingleCity from 'components/HeaderSingleCity'
 import MeteoMoreInfo from 'components/MeteoMoreInfo'
 import NextCard from 'components/NextCard'
+import MeteoImage from 'components/MeteoImage'
 
 const SingleCity = () => {
   const [meteoMoreInfos, setMeteoMoreInfos] = useState([])
-  const [temperature, setTemperature] = useState()
   const [nextDays, setNextDays] = useState([])
+  const [temperature, setTemperature] = useState()
+  const [image, setImage] = useState()
+  const [weatherInformation, setWeatherInformation] = useState()
 
   // Function to redirect at the top of the page
   useEffect(() => {
@@ -33,11 +36,14 @@ const SingleCity = () => {
     .then((resp) => resp.json())
     .then(function(data) {
       setTemperature(data.main.temp.toFixed(1))
+      setImage(data.weather[0])
+      setWeatherInformation(data.weather[0].main)
 
       addMoreInfos(data)
     })
     .catch(function(error) {
       console.log(error)
+      window.location.replace('/error-404') // Redirect to error 404
     }) // eslint-disable-next-line 
   }, [])
 
@@ -47,19 +53,19 @@ const SingleCity = () => {
       {
         name: 'Wind',
         image: 'images/wind/42.png',
-        alt: 'Image symbolisant le vent',
-        info: `${(data.wind.speed * 3.6).toFixed(2)} km/h` // To convert in km/H
+        alt: 'Symbolizes the wind',
+        info: `${(data.wind.speed * 3.6).toFixed(2)} km/h` // To convert in km/h
       },
       {
         name: 'Humidity',
         image: 'images/cloud/7.png',
-        alt: 'Image symbolisant les nuages',
+        alt: 'Symbolizes clouds',
         info: `${data.main.humidity} %`
       },
       {
         name: 'Feels like',
         image: 'images/sun/26.png',
-        alt: 'Image symbolisant le soleil',
+        alt: 'Symbolizes the sun',
         info: `${data.main.feels_like.toFixed(1)}°C`
       }
     ])
@@ -82,22 +88,24 @@ const SingleCity = () => {
   // Function to add next hours stats
   const addNextDays = (data) => {
     const actualDate = formatDate(new Date())
+    let showMidnight = true
 
     data.list.forEach(dataList => {
       const date = dataList.dt_txt
       const dateWithoutHour = date.split(' ')[0]
       const dateHour = date.split(' ')[1].split(':')
 
-      if(dateWithoutHour === actualDate) {
+      if(dateWithoutHour === actualDate || showMidnight ) {
         setNextDays(
           nextDays => nextDays.concat({
             temperature: dataList.main.temp.toFixed(1),
-            image: 'images/cloud/7.png',
-            alt: 'alt',
+            image: dataList.weather[0],
             hour: `${dateHour[0]}:${dateHour[1]}`
           })
         )
       }
+
+      if(dateWithoutHour !== actualDate) showMidnight = false // To only show the first midnight
     })
   }
 
@@ -131,10 +139,12 @@ const SingleCity = () => {
         <div className={styles.meteo}>
           <div className={styles.meteo__actual}>
             <div className={styles.meteo__main_info}>
-              <img className={styles.image} src='images/cloud/17.png' alt='alt' />
+              <div className={styles.image}>
+                <MeteoImage weather={image} />
+              </div>
               <div className={styles.meteo__main_info__text}>
                 <h3>{temperature}°C</h3>
-                <h4>Stormy</h4>
+                <h4>{weatherInformation}</h4>
               </div>
             </div>
             <div className={styles.meteo__more_infos}>

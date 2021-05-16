@@ -1,12 +1,16 @@
 import React from "react"
 import styles from './NextCard.module.sass'
+import PropTypes from 'prop-types'
+import MeteoImage from 'components/MeteoImage'
 
 const NextCard = (props) => {
   const { data } = props
   
   return (
     <div className={styles.container}>
-      <img className={styles.image} src={data.image} alt={data.alt} />
+      <div className={styles.image}>
+        <MeteoImage weather={data.image} />
+      </div>
       <p className={styles.temperature}>{data.temperature}°C</p>
       
       <div className={styles.hour__container}>
@@ -14,6 +18,10 @@ const NextCard = (props) => {
       </div>
     </div>
   )
+}
+
+NextCard.propTypes = {
+  data: PropTypes.object
 }
 
 export default NextCard

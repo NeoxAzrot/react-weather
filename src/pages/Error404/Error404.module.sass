@@ -1,1 +1,24 @@
 @import 'styles/variables'
+@import 'styles/animations'
+
+.error404
+  display: flex
+  justify-content: center
+  align-items: center
+  flex-direction: column
+  margin-top: 3rem
+  @media screen and ( max-width: 520px )
+    margin-top: 6rem
+
+  h1
+    font-size: 7rem
+    font-weight: 900
+    @media screen and ( max-width: 520px )
+      font-size: 5rem
+
+  img
+    height: 50rem
+    width: auto
+    animation: error404 6s ease-in-out infinite
+    @media screen and ( max-width: 520px )
+      height: 30rem

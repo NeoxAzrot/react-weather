@@ -30,8 +30,11 @@
     margin-top: 1rem
 
 .card__image
-    height: 12rem
-    width: auto
+    img
+        height: 12rem
+        width: auto
+        @media screen and ( max-width: 768px )
+            height: 10rem
 
 .card__temperature
     font-size: 5rem

@@ -7,15 +7,14 @@ const Search = () => {
 
   const handleClick = () => {
     setSearchClicked(!searchClicked)
+    document.getElementById('city').focus()
   }
   
   return (
     <div className={styles.container}>
-      {searchClicked && (
-        <form action='single-city' method='GET'>
-          <input className={styles.input} type="text" id="city" name="city" placeholder="Enter your city here" autoComplete="off" />
-        </form>
-      )}
+      <form action='single-city' method='GET' className={`${searchClicked ? styles.active : ''}`}>
+        <input className={styles.input} type="text" id="city" name="city" placeholder="Enter your city here" autoComplete="off" />
+      </form>
       
       <div className={styles.icon} onClick={handleClick}>
         <SearchIcon />

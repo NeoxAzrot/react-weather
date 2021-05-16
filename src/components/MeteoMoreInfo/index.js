@@ -1,5 +1,6 @@
 import React from "react"
 import styles from './MeteoMoreInfo.module.sass'
+import PropTypes from 'prop-types'
 
 const MeteoMoreInfo = (props) => {
   const { data } = props
@@ -14,6 +15,10 @@ const MeteoMoreInfo = (props) => {
       </div>
     </div>
   )
+}
+
+MeteoMoreInfo.propTypes = {
+  data: PropTypes.object
 }
 
 export default MeteoMoreInfo

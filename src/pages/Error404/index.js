@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { Helmet } from 'react-helmet'
 import Layout from 'components/Layout'
 import styles from './Error404.module.sass'
+import Header from 'components/Header'
 
 const Error404 = () => {
 
@@ -17,7 +18,12 @@ const Error404 = () => {
       </Helmet>
       
       <div className={styles.container}>
-        <p>Error 404</p>
+       <Header showArrow={true} />
+
+        <div className={styles.error404}>
+          <h1>Error 404</h1>
+          <img src='images/cloud/17.png' alt='Symbolizes a storm.' />
+        </div>
       </div>
     </Layout>   
   )

@@ -4,6 +4,7 @@
     display: flex
     justify-content: center
     align-items: baseline
+    position: relative
 
 .input
     outline: none
@@ -21,7 +22,23 @@
 
 .icon
     cursor: pointer
+    z-index: 10
 
     svg
         width: 3rem
         height: auto
+
+form
+    transform: translateY(-15rem)
+    transition: transform .5s ease-in-out
+    position: absolute
+    bottom: 0
+    right: 100%
+    &.active
+        transform: translateY(0)
+
+    @media screen and ( max-width: 640px )
+
+        .input
+            padding: 1rem 0
+            background: $primary-500

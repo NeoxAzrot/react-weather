@@ -3,6 +3,7 @@ import styles from './HeaderSingleCity.module.sass'
 import Search from 'components/Search'
 import Arrow from 'icons/Arrow'
 import { Link } from 'react-router-dom'
+import PropTypes from 'prop-types'
 
 const HeaderSingleCity = (props) => {
   const { city } = props
@@ -38,6 +39,10 @@ const HeaderSingleCity = (props) => {
       <Search />
     </div>
   )
+}
+
+HeaderSingleCity.propTypes = {
+  city: PropTypes.string
 }
 
 export default HeaderSingleCity

@@ -64,8 +64,7 @@ const Home = (props) => {
       cities => cities.concat({
         name: data.name,
         date: actualDate,
-        image: 'images/sun/4.png',
-        alt: 'Image symbolisant le soleil.',
+        image: data.weather[0],
         temperature: data.main.temp.toFixed(1),
         link: `single-city?city=${data.name}`
       })

@@ -84,12 +84,12 @@ const Home = (props) => {
           <p className={styles.card__header}>Predefined city</p>
           <div className={styles.cards}>
             {cities.map((city, index) => {
-                return (
-                  <div key={index} className={styles.card}>
-                    <CityCard city={city} />
-                  </div>
-                )
-              })}
+              return (
+                <div key={index} className={styles.card}>
+                  <CityCard city={city} />
+                </div>
+              )
+            })}
           </div>
         </div>
 

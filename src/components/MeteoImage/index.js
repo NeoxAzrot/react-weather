@@ -2,7 +2,7 @@ import React from "react"
 import PropTypes from 'prop-types'
 
 const MeteoImage = (props) => {
-  const { weather } = props
+  const { weather, hour } = props
 
   // Array to convert every id to an image
   const idToImage = [
@@ -291,10 +291,20 @@ const MeteoImage = (props) => {
 
     idToImage.forEach(array => {
       if(weather.id === array.id) {
-        if(actualHour < 7 || actualHour >= 20) {
-          link = array.night
+        // If we have to display an image with an other hour than the actual one
+        if(hour !== '') {
+          const formatHour = parseInt(hour.split(':')[0])
+          if(formatHour < 7 || formatHour >= 20) {
+            link = array.night
+          } else {
+            link = array.day
+          }
         } else {
-          link = array.day
+          if(actualHour < 7 || actualHour >= 20) {
+            link = array.night
+          } else {
+            link = array.day
+          }
         }
       }
     })
@@ -308,7 +318,8 @@ const MeteoImage = (props) => {
 }
 
 MeteoImage.propTypes = {
-  weather: PropTypes.object
+  weather: PropTypes.object,
+  hour: PropTypes.string
 }
 
 // To prevents errors due to state in single city
@@ -316,7 +327,8 @@ MeteoImage.defaultProps = {
   weather: {
     id: '',
     description: ''
-  }
+  },
+  hour: ''
 }
 
 export default MeteoImage

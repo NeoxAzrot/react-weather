@@ -9,7 +9,7 @@ const NextCard = (props) => {
   return (
     <div className={styles.container}>
       <div className={styles.image}>
-        <MeteoImage weather={data.image} />
+        <MeteoImage weather={data.image} hour={data.hour} />
       </div>
       <p className={styles.temperature}>{data.temperature}°C</p>
       

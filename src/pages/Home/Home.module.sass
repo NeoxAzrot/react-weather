@@ -1,4 +1,5 @@
 @import 'styles/variables'
+@import 'styles/animations'
 
 .container
     
@@ -9,6 +10,8 @@
     text-transform: capitalize
     font-size: 1.8rem
     font-weight: 300
+    opacity: 0
+    animation: transform-top .5s ease-out forwards
 
 .cards
     display: flex
@@ -22,6 +25,11 @@
     padding: 0 1rem
     flex-basis: 33%
     max-width: 33%
+    opacity: 0
+    animation: transform-top .5s ease-out forwards
+    @for $i from 1 through 10
+        &:nth-child(#{$i})
+            animation-delay: $i * .1s
 
     @media screen and ( max-width: 1124px )
         flex-basis: 50%

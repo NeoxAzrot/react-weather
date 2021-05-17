@@ -33,7 +33,7 @@ const Home = (props) => {
   const actualDate = `${today.getDate()} ${months[today.getMonth()]} ${today.getFullYear()}`
 
   // Variables to fetch
-  const key = process.env.REACT_APP_API_KEY
+  const key = process.env.REACT_APP_WEATHER_API_KEY
   const url = 'https://api.openweathermap.org/data/2.5/weather?units=metric'
 
   const preCity = [

@@ -24,8 +24,12 @@ const SingleCity = () => {
   const query = new URLSearchParams(useLocation().search)
   const city = query.get('city')
 
+  if(!city) {
+    window.location.replace('/error-404') // Redirect to error 404
+  }
+
   // Variables to fetch
-  const key = process.env.REACT_APP_API_KEY
+  const key = process.env.REACT_APP_WEATHER_API_KEY
   let url
 
   // Fetch actual weather
@@ -38,6 +42,8 @@ const SingleCity = () => {
       setTemperature(data.main.temp.toFixed(1))
       setImage(data.weather[0])
       setWeatherInformation(data.weather[0].main)
+
+      console.log(data)
 
       addMoreInfos(data)
     })

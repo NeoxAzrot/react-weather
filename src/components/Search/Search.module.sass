@@ -6,19 +6,8 @@
     align-items: baseline
     position: relative
 
-.input
-    outline: none
-    background: transparent
-    border: none
-    border-bottom: 1px solid $text-primary
-    font-family: $font
-    width: 20rem
-    color: $text-primary
-    font-size: 1.8rem
-
-.input::placeholder
-    color: $text-primary
-    opacity: .7
+    form
+        z-index: 999
 
 .icon
     cursor: pointer
@@ -36,9 +25,3 @@ form
     right: 100%
     &.active
         transform: translateY(0)
-
-    @media screen and ( max-width: 640px )
-
-        .input
-            padding: 1rem
-            background: $primary-500

@@ -30,6 +30,11 @@
     @for $i from 1 through 10
         &:nth-child(#{$i})
             animation-delay: $i * .1s
+    
+    & > *
+        transition: transform .2s ease-in-out
+        &:hover
+            transform: scale(1.05)
 
     @media screen and ( max-width: 1124px )
         flex-basis: 50%

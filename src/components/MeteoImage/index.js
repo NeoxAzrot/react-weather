@@ -208,52 +208,52 @@ const MeteoImage = (props) => {
     },
     {
       id: 701,
-      day: 'images/wind/42.png',
+      day: 'images/sun/4.png',
       night: 'images/moon/2.2.png'
     },
     {
       id: 711,
-      day: 'images/wind/42.png',
+      day: 'images/sun/4.png',
       night: 'images/moon/2.2.png'
     },
     {
       id: 721,
-      day: 'images/wind/42.png',
+      day: 'images/sun/4.png',
       night: 'images/moon/2.2.png'
     },
     {
       id: 731,
-      day: 'images/wind/42.png',
+      day: 'images/sun/4.png',
       night: 'images/moon/2.2.png'
     },
     {
       id: 741,
-      day: 'images/wind/42.png',
+      day: 'images/sun/4.png',
       night: 'images/moon/2.2.png'
     },
     {
       id: 751,
-      day: 'images/wind/42.png',
+      day: 'images/sun/4.png',
       night: 'images/moon/2.2.png'
     },
     {
       id: 761,
-      day: 'images/wind/42.png',
+      day: 'images/sun/4.png',
       night: 'images/moon/2.2.png'
     },
     {
       id: 762,
-      day: 'images/wind/42.png',
+      day: 'images/sun/4.png',
       night: 'images/moon/2.2.png'
     },
     {
       id: 771,
-      day: 'images/wind/42.png',
+      day: 'images/sun/4.png',
       night: 'images/moon/2.2.png'
     },
     {
       id: 781,
-      day: 'images/wind/42.png',
+      day: 'images/sun/4.png',
       night: 'images/moon/2.2.png'
     },
     {

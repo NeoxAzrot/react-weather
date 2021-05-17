@@ -15,7 +15,7 @@ const CityCard = (props) => {
       </div>
       <div className={styles.card__footer}>
         <div className={styles.card__image}>
-          <MeteoImage weather={city.image} />
+          <MeteoImage weather={city.image} sunset={city.sunset} sunrise={city.sunrise} />
         </div>
         <p className={styles.card__temperature}>{city.temperature}°C</p>
       </div>

@@ -13,25 +13,6 @@ const Home = (props) => {
     window.scrollTo(0, 0)
   }, [])
 
-  // For the date
-  const today = new Date()
-  const months = [
-    'January',
-    'February',
-    'March',
-    'April',
-    'May',
-    'June',
-    'July',
-    'August',
-    'September',
-    'October',
-    'November',
-    'December'
-  ]
-
-  const actualDate = `${today.getDate()} ${months[today.getMonth()]} ${today.getFullYear()}`
-
   // Variables to fetch
   const key = process.env.REACT_APP_WEATHER_API_KEY
   const url = 'https://api.openweathermap.org/data/2.5/weather?units=metric'
@@ -63,7 +44,8 @@ const Home = (props) => {
     setCities(
       cities => cities.concat({
         name: data.name,
-        date: actualDate,
+        sunrise: data.sys.sunrise,
+        sunset: data.sys.sunset,
         image: data.weather[0],
         temperature: data.main.temp.toFixed(1),
         link: `single-city?city=${data.name}`

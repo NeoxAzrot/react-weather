@@ -2,7 +2,7 @@ import React from "react"
 import PropTypes from 'prop-types'
 
 const MeteoImage = (props) => {
-  const { weather, hour } = props
+  const { weather, sunset, sunrise, pod } = props
 
   // Array to convert every id to an image
   const idToImage = [
@@ -287,23 +287,25 @@ const MeteoImage = (props) => {
 
   // Function to check which image we have to take depend of the id
   const convertIdToImage = () => {
-    const actualHour = new Date().getHours()
+    const actualHour = new Date()
 
     idToImage.forEach(array => {
       if(weather.id === array.id) {
-        // If we have to display an image with an other hour than the actual one
-        if(hour !== '') {
-          const formatHour = parseInt(hour.split(':')[0])
-          if(formatHour < 7 || formatHour >= 20) {
-            link = array.night
-          } else {
+        // If the image it's in the part of the day or night --> next hours
+        if(pod) {
+          if(pod === 'd') {
             link = array.day
+          } else if(pod === 'n') {
+            link = array.night
           }
-        } else {
-          if(actualHour < 7 || actualHour >= 20) {
-            link = array.night
-          } else {
+        } else if(sunrise && sunset) { // If the weather as sunrise and sunset data
+          const sunriseHour = new Date(sunrise * 1000)
+          const sunsetHour = new Date(sunset * 1000)
+
+          if(actualHour > sunriseHour && actualHour < sunsetHour) {
             link = array.day
+          } else {
+            link = array.night
           }
         }
       }
@@ -319,7 +321,9 @@ const MeteoImage = (props) => {
 
 MeteoImage.propTypes = {
   weather: PropTypes.object,
-  hour: PropTypes.string
+  sunset: PropTypes.number,
+  sunrise: PropTypes.number,
+  pod: PropTypes.string
 }
 
 // To prevents errors due to state in single city
@@ -328,7 +332,9 @@ MeteoImage.defaultProps = {
     id: '',
     description: ''
   },
-  hour: ''
+  sunset: null,
+  sunrise: null,
+  pod: null
 }
 
 export default MeteoImage

@@ -11,9 +11,7 @@ import MeteoImage from 'components/MeteoImage'
 const SingleCity = () => {
   const [meteoMoreInfos, setMeteoMoreInfos] = useState([])
   const [nextDays, setNextDays] = useState([])
-  const [temperature, setTemperature] = useState()
-  const [image, setImage] = useState()
-  const [weatherInformation, setWeatherInformation] = useState()
+  const [actualMeteo, setActualMeteo] = useState({})
 
   // Function to redirect at the top of the page
   useEffect(() => {
@@ -39,11 +37,13 @@ const SingleCity = () => {
     fetch(`${url}&q=${city}&appid=${key}`)
     .then((resp) => resp.json())
     .then(function(data) {
-      setTemperature(data.main.temp.toFixed(1))
-      setImage(data.weather[0])
-      setWeatherInformation(data.weather[0].main)
-
-      console.log(data)
+      setActualMeteo({
+        temperature: data.main.temp.toFixed(1),
+        image: data.weather[0],
+        information: data.weather[0].main,
+        sunrise: data.sys.sunrise,
+        sunset: data.sys.sunset
+      })
 
       addMoreInfos(data)
     })
@@ -106,6 +106,7 @@ const SingleCity = () => {
           nextDays => nextDays.concat({
             temperature: dataList.main.temp.toFixed(1),
             image: dataList.weather[0],
+            pod: dataList.sys.pod,
             hour: `${dateHour[0]}:${dateHour[1]}`
           })
         )
@@ -146,11 +147,11 @@ const SingleCity = () => {
           <div className={styles.meteo__actual}>
             <div className={styles.meteo__main_info}>
               <div className={styles.image}>
-                <MeteoImage weather={image} />
+                <MeteoImage weather={actualMeteo.image} sunrise={actualMeteo.sunrise} sunset={actualMeteo.sunset} />
               </div>
               <div className={styles.meteo__main_info__text}>
-                <h3>{temperature}°C</h3>
-                <h4>{weatherInformation}</h4>
+                <h3>{actualMeteo.temperature}°C</h3>
+                <h4>{actualMeteo.information}</h4>
               </div>
             </div>
             <div className={styles.meteo__more_infos}>

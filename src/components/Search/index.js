@@ -18,7 +18,11 @@ const Search = () => {
 
     // To prevent errors
     if(input) {
-      input.focus()
+      if(!searchClicked) {
+        input.focus()
+      } else {
+        document.body.focus() // To disable the focus
+      }
     }
   }
 
@@ -63,6 +67,8 @@ const Search = () => {
               control: (provided) => ({
                 ...provided,
                 border: 'none',
+                background: 'transparent',
+                boxShadow: 'none',
                 '&:hover': {
                   background: 'transparent',
                   border: 'none'
@@ -70,7 +76,6 @@ const Search = () => {
               }),
               dropdownIndicator: (provided) => ({
                 ...provided,
-                background: '#053581',
                 height: '100%',
                 color: '#ffffff',
                 paddingBottom: '9px',
@@ -99,21 +104,22 @@ const Search = () => {
               loadingMessage: (provided) => ({
                 ...provided,
                 color: '#ffffff',
-                background: '#053581'
+                background: 'linear-gradient(40deg, #053581 0%, #4E86DE 100%)'
               }),
               menu: (provided) => ({
                 ...provided,
-                background: '#053581'
+                background: 'linear-gradient(40deg, #053581 0%, #4E86DE 100%)',
+                margin: 0
               }),
               noOptionsMessage: (provided) => ({
                 ...provided,
                 color: '#ffffff',
-                background: '#053581'
+                background: 'linear-gradient(40deg, #053581 0%, #4E86DE 100%)'
               }),
               option: (provided) => ({
                 ...provided,
                 color: '#ffffff',
-                background: '#053581',
+                background: 'transparent',
                 cursor: 'pointer',
                 '&:hover': {
                   color: '#C6CADF'
@@ -135,17 +141,13 @@ const Search = () => {
                 width: '20rem',
                 color: '#ffffff',
                 fontSize: '1.8rem'
-              }),
-              valueContainer: (provided) => ({
-                ...provided,
-                background: '#053581'
               })
             },
           }}
         />
       </form>
       
-      <div className={styles.icon} onClick={handleClick}>
+      <div id="search-icon" className={styles.icon} onClick={handleClick}>
         <SearchIcon />
       </div>
     </div>

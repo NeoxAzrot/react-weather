@@ -8,53 +8,53 @@ import PropTypes from 'prop-types'
 const Header = (props) => {
   const { showArrow } = props
 
-    // For the date
-    const today = new Date()
-    const months = [
-        'January',
-        'February',
-        'March',
-        'April',
-        'May',
-        'June',
-        'July',
-        'August',
-        'September',
-        'October',
-        'November',
-        'December'
-        ]
+  // For the date
+  const today = new Date()
+  const months = [
+      'January',
+      'February',
+      'March',
+      'April',
+      'May',
+      'June',
+      'July',
+      'August',
+      'September',
+      'October',
+      'November',
+      'December'
+      ]
 
-    // For the message
-    const actualHour = today.getHours()
-    const messages = [
-      {
-        text: 'Good morning',
-        startHour: 6
-      },
-      {
-        text: 'Good afternoon',
-        startHour: 12
-      },
-      {
-        text: 'Good evening',
-        startHour: 17
-      }
-    ]
-
-    let actualMessage = null
-    const getMessage = (hour) => {
-      if(hour < messages[0].startHour) {
-        actualMessage = messages[messages.length - 1].text
-      }
-      messages.forEach(message => {
-        if(hour >= message.startHour) {
-          actualMessage = message.text
-        }
-      })
+  // For the message
+  const actualHour = today.getHours()
+  const messages = [
+    {
+      text: 'Good morning',
+      startHour: 6
+    },
+    {
+      text: 'Good afternoon',
+      startHour: 12
+    },
+    {
+      text: 'Good evening',
+      startHour: 17
     }
+  ]
 
-    getMessage(actualHour)
+  let actualMessage = null
+  const getMessage = (hour) => {
+    if(hour < messages[0].startHour) {
+      actualMessage = messages[messages.length - 1].text
+    }
+    messages.forEach(message => {
+      if(hour >= message.startHour) {
+        actualMessage = message.text
+      }
+    })
+  }
+
+  getMessage(actualHour)
   
   return (
     <div className={styles.container}>
@@ -69,7 +69,9 @@ const Header = (props) => {
           <h2>Today, {today.getDate()} <span className={styles.month}>{months[today.getMonth()]}</span></h2>
         </div>
       </div>
-      <Search />
+      <div className={styles.search}>
+        <Search />
+      </div>
     </div>
   )
 }

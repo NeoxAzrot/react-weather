@@ -84,7 +84,7 @@ const SingleCity = () => {
     fetch(`${url}&q=${city}&appid=${key}`)
     .then((resp) => resp.json())
     .then(function(data) {
-      addNextDays(data)
+      addNextHours(data)
     })
     .catch(function(error) {
       console.log(error)
@@ -92,7 +92,7 @@ const SingleCity = () => {
   }, [])
 
   // Function to add next hours stats
-  const addNextDays = (data) => {
+  const addNextHours = (data) => {
     const actualDate = formatDate(new Date())
     let showMidnight = true
 

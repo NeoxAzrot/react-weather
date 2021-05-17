@@ -36,7 +36,9 @@ const HeaderSingleCity = (props) => {
           <h1>{city}</h1>
         </div>
       </div>
-      <Search />
+      <div className={styles.search}>
+        <Search />
+      </div>
     </div>
   )
 }

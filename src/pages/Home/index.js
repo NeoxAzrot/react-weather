@@ -17,18 +17,18 @@ const Home = (props) => {
   const key = process.env.REACT_APP_WEATHER_API_KEY
   const url = 'https://api.openweathermap.org/data/2.5/weather?units=metric'
 
-  const preCity = [
+  const preCities = [
     'Paris',
     'New York',
     'Tokyo',
     'Londres',
     'Sydney',
-    'Moscow'
+    'San Francisco'
   ]
 
   // Fetch actual weather
   useEffect(() => {
-    preCity.forEach(city => {
+    preCities.forEach(city => {
       fetch(`${url}&q=${city}&appid=${key}`)
       .then((resp) => resp.json())
       .then(function(data) {

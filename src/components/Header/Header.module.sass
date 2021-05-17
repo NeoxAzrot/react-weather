@@ -4,6 +4,9 @@
     display: flex
     justify-content: space-between
     align-items: center
+    @media screen and ( max-width: 650px )
+        flex-direction: column-reverse
+        align-items: flex-start
 
     h1
         font-size: 4rem
@@ -29,3 +32,7 @@
     cursor: pointer
     &:hover
         animation: arrow 1s linear infinite
+
+.search
+    @media screen and ( max-width: 650px )
+        align-self: flex-end

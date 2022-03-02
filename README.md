@@ -12,7 +12,7 @@
 
 **Resources:**
 
-- https://home.openweathermap.org/
+- [openweathermap.org](https://home.openweathermap.org)
 
 ## To see the project
 

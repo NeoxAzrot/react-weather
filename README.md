@@ -6,9 +6,9 @@
 
 **Functionality:**
 
-- Search for a city
+- Search for a city, with autocomplete
 - Display of the weather
-- Bonus: Geolocation
+- Geolocation
 
 **Resources:**
 
@@ -22,6 +22,7 @@ You can find the project online directly at the following address [test-react-we
 
 
 ## To contribute to the project
+
 ### Set up [Open weather map API](https://openweathermap.org/api)
 
 You must add your API key from in a `.env` file

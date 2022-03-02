@@ -51,7 +51,7 @@ For the requests to work you will have to activate **2 APIs** on the same platfo
 ### `npm start`
 
 Runs the app in the development mode.
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Open [localhost:3000](http://localhost:3000) to view it in the browser.
 
 ### `npm run build`
 

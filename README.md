@@ -47,12 +47,14 @@ For the requests to work you will have to activate **2 APIs** on the same platfo
 
 > ⚠️ For more protection, you can activate [restrictions](https://console.cloud.google.com/apis/credentials/key/2addfa09-f3f4-4b52-8d8c-7d9888d33461) on your API key
 
-### `npm start`
+### Launch the project
+
+#### `npm start`
 
 Runs the app in the development mode.
 Open [localhost:3000](http://localhost:3000) to view it in the browser.
 
-### `npm run build`
+#### `npm run build`
 
 Builds the app for production to the `build` folder.
 It correctly bundles React in production mode and optimizes the build for the best performance.

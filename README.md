@@ -20,7 +20,6 @@
 
 You can find the project online directly at the following address [test-react-weather.netlify.app](https://test-react-weather.netlify.app)
 
-
 ## To contribute to the project
 
 ### Set up [Open weather map API](https://openweathermap.org/api)
